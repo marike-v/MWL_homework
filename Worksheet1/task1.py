@@ -41,7 +41,7 @@ plt.axvline(arithmetic_mean_x, color='green', linestyle='--', label=f'Arithmetic
 plt.axvline(expected_value_x, color='blue', linestyle='--', label=f'Expected Value ≈ {expected_value_x:.2f}')
 plt.axvline(mode_x, color='orange', linestyle='--', label=f'Mode = {mode_x}')
 plt.axvline(median_x, color='red', linestyle='--', label=f'Median = {median_x}')
-
+# Display rest of values
 stats_text = f"Expected Value X^2 ≈ {expected_value_x2:.2f}\nExpected Value X^3 ≈ {expected_value_x3:.2f}\nVariance ≈ {variance:.2f}\nSkewness ≈ {skewness:.2f}\nKurtosis ≈ {kurtosis:.2f}\nStandard deviation ≈ {standard_deviation:.2f}"
 plt.text(0.7, 0.75, stats_text,
         fontsize=10,
