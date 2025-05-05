@@ -16,6 +16,7 @@ margin_of_error=2*crit_value*(std_dev/np.sqrt(n)) #unklar, wie es richtig ist
 #calculating lower bound for sample size so that margin of error is lower than 0.2 seconds:
 min_n=(2*crit_value*std_dev/0.2)**2
 print(min_n)
+# sample size for margin of error being lower than 0.2 seconds is 97.
 #thus we can calulate lower and upper boundary as follows:
 low_bound=mean-crit_value*(std_dev/np.sqrt(n))
 upper_bound=mean+crit_value*(std_dev/np.sqrt(n))
