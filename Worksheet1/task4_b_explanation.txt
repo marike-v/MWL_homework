@@ -1,0 +1,7 @@
+Task 4
+
+b) The 95% confidence interval means, that based on these 40 samples, we can be 95% confident, that the true 
+   average startup delay for all users in the new market lies inbetween the calculated boundaries.
+
+   Because the confidence interval is below 3 seconds, one could argue, that this is good enough for a good user experience
+   and thus that the video startup quality is quite good.
