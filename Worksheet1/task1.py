@@ -34,7 +34,7 @@ kurtosis=np.sum(((x - expected_value_x)**4) * p) / np.sqrt(variance)**4
 #Plotting
 plt.figure(figsize=(10, 6))
 plt.bar(x, p, color="skyblue", label="P(X)", alpha=0.8)
-plt.bar(x, cdf,  label="CDF", width=0.4,color='purple', alpha=0.7)
+plt.step(x, cdf,  label="CDF", where="mid",color='purple')
 
 # Add vertical lines for statistical measures
 plt.axvline(arithmetic_mean_x, color='green', linestyle='--', label=f'Arithmetic Mean ≈ {arithmetic_mean_x:.2f}')
