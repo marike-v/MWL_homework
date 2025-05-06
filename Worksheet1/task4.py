@@ -7,28 +7,34 @@ n=len(data)
 mean=np.sum(data)/n
 std_dev=np.sqrt(np.sum((data-mean)**2)/(n-1))
 
+
 #using this table https://highered.mheducation.com/sites/dl/free/0070980357/684814/t_distribution_table.pdf, we obtain the critical value:
 #degree of freedom in t-distribution is n-1 thus 39 in this case
 
-crit_value=2.023
-margin_of_error=2*crit_value*(std_dev/np.sqrt(n)) #unklar, wie es richtig ist
 
-#calculating lower bound for sample size so that margin of error is lower than 0.2 seconds:
-min_n=(2*crit_value*std_dev/0.2)**2
-print(min_n)
-# sample size for margin of error being lower than 0.2 seconds is 97.
+crit_value_std=1.960
+crit_value_t=2.023
+margin_of_error_std=crit_value_std*(std_dev/np.sqrt(n)) #unklar, wie es richtig ist
+margin_of_error_t=crit_value_t*(std_dev/np.sqrt(n))
+
 #thus we can calulate lower and upper boundary as follows:
-low_bound=mean-crit_value*(std_dev/np.sqrt(n))
-upper_bound=mean+crit_value*(std_dev/np.sqrt(n))
+low_bound_std=mean-crit_value_std*(std_dev/np.sqrt(n))
+upper_bound_std=mean+crit_value_std*(std_dev/np.sqrt(n))
 
-#that means, we can be 95% sure, that the amount of time of the average
-#delay is between approx. 2.25 and 2.57 seconds.
+low_bound_t=mean-crit_value_t*(std_dev/np.sqrt(n))
+upper_bound_t=mean+crit_value_t*(std_dev/np.sqrt(n))
+
+
+#plotting
 
 plt.figure(figsize=(10, 6))
 plt.hist(data, bins=40)
 
-plt.axvline(low_bound, color='red', linestyle='--', label=f'Lower bound ≈ {low_bound:.2f}')
-plt.axvline(upper_bound, color='red', linestyle='--', label=f'Upper bound ≈ {upper_bound:.2f}')
+plt.axvline(mean, color='orange', linestyle='--', label=f'Mean ≈ {mean:.2f}')
+plt.axvline(low_bound_std, color='red', linestyle='--', label=f'Lower bound using normal distribution ≈ {low_bound_std:.2f}')
+plt.axvline(upper_bound_std, color='red', linestyle='--', label=f'Upper bound using normal distribution ≈ {upper_bound_std:.2f}')
+plt.axvline(low_bound_t, color='green', linestyle='--', label=f'Lower bound using t-Distribution ≈ {low_bound_t:.2f}')
+plt.axvline(upper_bound_t, color='green', linestyle='--', label=f'Upper bound using t-Distribution ≈ {upper_bound_t:.2f}')
 
 plt.title("Average startup delay of video streaming, Samples")
 plt.xlabel("Observed delay (in seconds)")
