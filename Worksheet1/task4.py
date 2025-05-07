@@ -12,23 +12,29 @@ std_dev=np.sqrt(np.sum((data-mean)**2)/(n-1))
 #degree of freedom in t-distribution is n-1 thus 39 in this case
 
 
-crit_value_std=1.960
-crit_value_t=2.023
-margin_of_error_std=crit_value_std*(std_dev/np.sqrt(n)) #unklar, wie es richtig ist
-margin_of_error_t=crit_value_t*(std_dev/np.sqrt(n))
 
+ #####nur einer von den blöcken ist richtig, abwarten was naveed sagt!#####
+
+crit_value_std=1.960
+margin_of_error_std=crit_value_std*(std_dev/np.sqrt(n))
 #thus we can calulate lower and upper boundary as follows:
 low_bound_std=mean-crit_value_std*(std_dev/np.sqrt(n))
 upper_bound_std=mean+crit_value_std*(std_dev/np.sqrt(n))
 
+############################################################################
+
+crit_value_t=2.023
+margin_of_error_t=crit_value_t*(std_dev/np.sqrt(n))
+#thus we can calulate lower and upper boundary as follows:
 low_bound_t=mean-crit_value_t*(std_dev/np.sqrt(n))
 upper_bound_t=mean+crit_value_t*(std_dev/np.sqrt(n))
-
 
 #plotting
 
 plt.figure(figsize=(10, 6))
 plt.hist(data, bins=40)
+
+######2 von den bounds müssen dann raus, je nach dem was naveed sagt, genauso wie dieser kommentar#####
 
 plt.axvline(mean, color='orange', linestyle='--', label=f'Mean ≈ {mean:.2f}')
 plt.axvline(low_bound_std, color='red', linestyle='--', label=f'Lower bound using normal distribution ≈ {low_bound_std:.2f}')
