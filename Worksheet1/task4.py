@@ -7,12 +7,6 @@ n=len(data)
 mean=np.sum(data)/n
 std_dev=np.sqrt(np.sum((data-mean)**2)/(n-1))
 
-
-#using this table https://highered.mheducation.com/sites/dl/free/0070980357/684814/t_distribution_table.pdf, we obtain the critical value:
-#degree of freedom in t-distribution is n-1 thus 39 in this case
-
-
-
  #####nur einer von den blöcken ist richtig, abwarten was naveed sagt!#####
 
 crit_value_std=1.960
@@ -22,7 +16,8 @@ low_bound_std=mean-crit_value_std*(std_dev/np.sqrt(n))
 upper_bound_std=mean+crit_value_std*(std_dev/np.sqrt(n))
 
 ############################################################################
-
+#using this table https://highered.mheducation.com/sites/dl/free/0070980357/684814/t_distribution_table.pdf, we obtain the critical value:
+#degree of freedom in t-distribution is n-1 thus 39 in this case
 crit_value_t=2.023
 margin_of_error_t=crit_value_t*(std_dev/np.sqrt(n))
 #thus we can calulate lower and upper boundary as follows:
