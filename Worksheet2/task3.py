@@ -43,7 +43,7 @@ for name, img in images.items():
         filename = f"{name}_Q{q}.jpg"
         Image.fromarray(img).save(filename, "JPEG", quality=q)
         
-        # Load back the compressed image
+        # Load compressed image
         compressed = Image.open(filename).convert('RGB')
         compressed_np=np.array(compressed)
         # File size in KB
