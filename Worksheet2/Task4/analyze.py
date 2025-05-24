@@ -35,7 +35,6 @@ plt.imshow(cv2.cvtColor(received, cv2.COLOR_BGR2RGB))
 plt.title("Received")
 plt.axis('off')
 
-# Add metrics text on the bottom of the figure
 plt.figtext(0.5, 0.01,
             f"MSE: {mse_value:.2f}    PSNR: {psnr_value:.2f} dB    SSIM: {ssim_value:.3f}",
             wrap=True, horizontalalignment='center', fontsize=12)
