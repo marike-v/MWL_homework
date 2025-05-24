@@ -16,25 +16,29 @@ gray_orig = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
 gray_recv = cv2.cvtColor(received, cv2.COLOR_BGR2GRAY)
 
 # Calculate metrics
-mse_val = np.mean((gray_orig - gray_recv) ** 2)
-psnr_val = psnr(original, received)
-ssim_val, _ = ssim(gray_orig, gray_recv, full=True)
+mse_value = np.mean((original - received) ** 2)
+psnr_value = psnr(original, received)
+ssim_value, _ = ssim(gray_orig, gray_recv, full=True)
 
-print(f"MSE: {mse_val:.2f}")
-print(f"PSNR: {psnr_val:.2f} dB")
-print(f"SSIM: {ssim_val:.3f}")
+# Plotting
+plt.figure(figsize=(12, 5))
 
-# Show side-by-side
-plt.figure(figsize=(10, 4))
+# Original image
 plt.subplot(1, 2, 1)
 plt.imshow(cv2.cvtColor(original, cv2.COLOR_BGR2RGB))
 plt.title("Original")
 plt.axis('off')
 
+# Received image
 plt.subplot(1, 2, 2)
 plt.imshow(cv2.cvtColor(received, cv2.COLOR_BGR2RGB))
 plt.title("Received")
 plt.axis('off')
 
-plt.tight_layout()
+# Add metrics text on the bottom of the figure
+plt.figtext(0.5, 0.01,
+            f"MSE: {mse_value:.2f}    PSNR: {psnr_value:.2f} dB    SSIM: {ssim_value:.3f}",
+            wrap=True, horizontalalignment='center', fontsize=12)
+
+plt.tight_layout(rect=[0, 0.05, 1, 1])
 plt.show()
