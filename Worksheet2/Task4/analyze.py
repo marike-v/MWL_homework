@@ -23,13 +23,11 @@ ssim_value, _ = ssim(gray_orig, gray_recv, full=True)
 # Plotting
 plt.figure(figsize=(12, 5))
 
-# Original image
 plt.subplot(1, 2, 1)
 plt.imshow(cv2.cvtColor(original, cv2.COLOR_BGR2RGB))
 plt.title("Original")
 plt.axis('off')
 
-# Received image
 plt.subplot(1, 2, 2)
 plt.imshow(cv2.cvtColor(received, cv2.COLOR_BGR2RGB))
 plt.title("Received")
