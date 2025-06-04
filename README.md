@@ -1,2 +1,3 @@
-# MWL_homework
-Google docs link WS 2: https://docs.google.com/document/d/1T964RTerePmMfGXNxP3sNw3XXroTa4KQm69SGKkh_bs/edit?usp=sharing
+version https://git-lfs.github.com/spec/v1
+oid sha256:4ce6261fce734eee882f8590ddbd0c428fa0fd89664236513bdeaeb5669675ae
+size 258
