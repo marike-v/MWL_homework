@@ -1,3 +1,3 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:044e78deed14a7b6f8f520ed109d6e48bb1c33f9126dbbbef333823c377946cb
-size 14
+#MWL_homework 
+Google docs link WS 2: https://docs.google.com/document/d/1T964RTerePmMfGXNxP3sNw3XXroTa4KQm69SGKkh_bs/edit?usp=sharing 
+Google docs link WS 3: https://docs.google.com/document/d/1PFRRFY2dnHJEymE0afdKimoOIngMvUzVwdxwsoS4wLM/edit?usp=sharing
