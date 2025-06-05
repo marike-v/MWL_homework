@@ -22,21 +22,6 @@ total_bytes_453k = sum(frame_bytes_453k.values())
 frame_percent_453k = {k: v / total_frames_453k * 100 for k, v in frame_counts_453k.items()}
 byte_percent_453k = {k: v / total_bytes_453k * 100 for k, v in frame_bytes_453k.items()}
 
-# plotting
-plt.figure(figsize=(12, 5))
-
-plt.subplot(1, 2, 1)
-plt.title("CBR 453k – Frame Count (%)")
-plt.pie(frame_percent_453k.values(), labels=frame_percent_453k.keys(), autopct='%1.1f%%')
-
-plt.subplot(1, 2, 2)
-plt.title("CBR 453k – Byte Contribution (%)")
-plt.pie(byte_percent_453k.values(), labels=byte_percent_453k.keys(), autopct='%1.1f%%')
-
-plt.tight_layout()
-plt.show()
-
-# loading json data again
 
 with open("frames_1840k.json", "r") as f:
     data_1840k = json.load(f)
@@ -58,14 +43,23 @@ frame_percent_1840k = {k: v / total_frames_1840k * 100 for k, v in frame_counts_
 byte_percent_1840k = {k: v / total_bytes_1840k * 100 for k, v in frame_bytes_1840k.items()}
 
 # plotting
-plt.figure(figsize=(12, 5))
+fig, axs = plt.subplots(2, 2, figsize=(12, 10))
 
-plt.subplot(1, 2, 1)
-plt.title("CBR 1840k – Frame Count (%)")
-plt.pie(frame_percent_1840k.values(), labels=frame_percent_1840k.keys(), autopct='%1.1f%%')
+# 453k Frame Count
+axs[0, 0].pie(frame_percent_453k.values(), labels=frame_percent_453k.keys(), autopct='%1.1f%%')
+axs[0, 0].set_title("CBR 453k – Frame Count (%)")
 
-plt.subplot(1, 2, 2)
-plt.title("CBR 1840k – Byte Contribution (%)")
-plt.pie(byte_percent_1840k.values(), labels=byte_percent_1840k.keys(), autopct='%1.1f%%')
+# 453k Byte Contribution
+axs[0, 1].pie(byte_percent_453k.values(), labels=byte_percent_453k.keys(), autopct='%1.1f%%')
+axs[0, 1].set_title("CBR 453k – Byte Contribution (%)")
 
-plt.tight_la
+# 1840k Frame Count
+axs[1, 0].pie(frame_percent_1840k.values(), labels=frame_percent_1840k.keys(), autopct='%1.1f%%')
+axs[1, 0].set_title("CBR 1840k – Frame Count (%)")
+
+# 1840k Byte Contribution
+axs[1, 1].pie(byte_percent_1840k.values(), labels=byte_percent_1840k.keys(), autopct='%1.1f%%')
+axs[1, 1].set_title("CBR 1840k – Byte Contribution (%)")
+
+plt.tight_layout()
+plt.show()
