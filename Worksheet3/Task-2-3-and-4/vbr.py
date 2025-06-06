@@ -17,7 +17,7 @@ for crf in crf_values:
         '-vcodec', 'libx264',
         '-crf', str(crf),
         '-preset', 'medium',
-        '-y',  # overwrite output
+        '-y',  
         output_path
     ]
     subprocess.run(command)
